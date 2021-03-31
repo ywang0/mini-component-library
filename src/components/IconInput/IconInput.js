@@ -36,6 +36,9 @@ const IconInput = ({ label, icon, width = 250, size, ...delegated }) => {
   };
 
   const styleSize = styleSizes[size];
+  if (!styleSize)
+    throw new Error(`Unknown size passed to ProgressBar: ${size}`);
+
   const iconSize = size === 'small' ? 16 : 24;
 
   return (
