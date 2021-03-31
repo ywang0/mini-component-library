@@ -28,8 +28,9 @@ const SIZES = {
 
 const ProgressBar = ({ value, size }) => {
   const style = SIZES[size];
+  if (!style) throw new Error(`Unknown size passed to ProgressBar: ${size}`);
+
   const percentage = ((value - MINVALUE) / MAXVALUE) * 100;
-  console.log(percentage);
   const innerBorderRadiusRight =
     percentage >= 99.9 ? '4px' : percentage >= 99.8 ? '2px' : '0';
 
@@ -63,7 +64,6 @@ const Wrapper = styled.div`
   background-color: ${COLORS.transparentGray15};
   width: var(--width);
   height: var(--height);
-  border: var(--border);
   border-radius: var(--outerBorderRadius);
   padding: var(--padding, 0);
   box-shadow: inset -1px 2px 2px ${COLORS.transparentGray35};

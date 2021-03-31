@@ -65,7 +65,6 @@ const Wrapper = styled.div`
 
 const IconWrapper = styled.div`
   position: absolute;
-  display: inline-block;
   background-color: transparent;
   top: var(--icon-position-top);
   right: var(--icon-position-right);
